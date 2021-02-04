@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>NoteEditor</AssemblyName>
+    <RootNamespace>MDD4All.Notes.Apps.NoteEditor</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="NoteEditorIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommonServiceLocator" Version="2.0.6" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MDD4All.Notes.DataModels\MDD4All.Notes.DataModels.csproj" />
+    <ProjectReference Include="..\MDD4All.Notes.DataProvider.Contracts\MDD4All.Notes.DataProvider.Contracts.csproj" />
+    <ProjectReference Include="..\MDD4All.Notes.DataProvider.File\MDD4All.Notes.DataProvider.File.csproj" />
+    <ProjectReference Include="..\MDD4All.Notes.DataProvider.Mockup\MDD4All.Notes.DataProvider.Mockup.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\NoteEditorIcon.png" />
+  </ItemGroup>
+
+</Project>
