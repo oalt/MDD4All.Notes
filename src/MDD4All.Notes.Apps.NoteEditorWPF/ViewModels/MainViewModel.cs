@@ -1,7 +1,6 @@
 ﻿/*
  * Copyright (c) MDD4All.de, Dr. Oliver Alt
  */
-using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MDD4All.Notes.Apps.NoteEditor.Views;
@@ -20,15 +19,17 @@ namespace MDD4All.Notes.Apps.NoteEditor.ViewModels
 
         private INoteDataProvider _noteDataProvider;
 
-        public MainViewModel()
+        public MainViewModel(INoteDataProvider noteDataProvider)
         {
+            _noteDataProvider = noteDataProvider;
+
             NewNoteCommand = new RelayCommand(ExecuteNewNoteCommand);
             EditNoteCommand = new RelayCommand(ExecuteEditNoteCommand);
             DeleteNoteCommand = new RelayCommand(ExecuteDeleteNoteCommand, CanExecuteDeleteNoteCommand);
             SaveNoteCommand = new RelayCommand(ExecuteSaveNoteCommand);
             GoBackCommand = new RelayCommand(ExecuteGoBackCommand);
 
-            _noteDataProvider = ServiceLocator.Current.GetInstance<INoteDataProvider>();
+            
             InitializeData();
         }
 

@@ -1,5 +1,5 @@
 ﻿<!--
-Copyright (c) MDD4All.de, Dr. Oliver Alt
+    Copyright (c) MDD4All.de, Dr. Oliver Alt
 -->
 <Page x:Class="MDD4All.Notes.Apps.NoteEditor.Views.EditNotePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -10,7 +10,7 @@ Copyright (c) MDD4All.de, Dr. Oliver Alt
       Title="EditNotePage"
       d:DesignHeight="450"
       d:DesignWidth="800"
-      Background="Black"
+      Background="#333333"
       mc:Ignorable="d">
 
     <Page.Resources>
@@ -23,7 +23,7 @@ Copyright (c) MDD4All.de, Dr. Oliver Alt
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150" />
+            <RowDefinition Height="140" />
             <RowDefinition Height="*" />
             <RowDefinition Height="90" />
         </Grid.RowDefinitions>
@@ -33,20 +33,20 @@ Copyright (c) MDD4All.de, Dr. Oliver Alt
         </Grid.ColumnDefinitions>
 
         <Button Grid.Row="0"
-                Margin="0,55,0,0"
+                Margin="0,50,0,0"
                 HorizontalAlignment="Left"
                 Command="{Binding GoBackCommand}"
                 Content=""
                 Style="{StaticResource AppBarButtonStyle}" />
 
         <TextBlock Grid.Row="0"
-                   Margin="100,50,0,0"
+                   Margin="100,45,0,0"
                    FontSize="50"
                    Foreground="White"
                    Text="Edit Note:" />
 
         <TextBlock Grid.Row="0"
-                   Margin="340,50,0,0"
+                   Margin="340,45,0,0"
                    FontSize="50"
                    Text="{Binding EditedNote.Title}" />
 

@@ -1,5 +1,5 @@
 ﻿<!--
-Copyright (c) MDD4All.de, Dr. Oliver Alt
+    Copyright (c) MDD4All.de, Dr. Oliver Alt
 -->
 <Page x:Class="MDD4All.Notes.Apps.NoteEditor.Views.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -21,9 +21,9 @@ Copyright (c) MDD4All.de, Dr. Oliver Alt
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid>
+    <Grid Background="#333333">
         <Grid.RowDefinitions>
-            <RowDefinition Height="150" />
+            <RowDefinition Height="140" />
             <RowDefinition Height="*" />
             <RowDefinition Height="90" />
         </Grid.RowDefinitions>
@@ -32,14 +32,14 @@ Copyright (c) MDD4All.de, Dr. Oliver Alt
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="0"
-                   Margin="10,50,0,0"
+                   Margin="10,45,0,0"
                    FontFamily="Segoe UI Symbol"
                    FontSize="50"
                    Foreground="LightYellow"
                    Text="" />
 
         <TextBlock Grid.Row="0"
-                   Margin="100,50,0,0"
+                   Margin="100,45,0,0"
                    FontSize="50"
                    Foreground="White"
                    Text="Note Editor" />
@@ -48,14 +48,19 @@ Copyright (c) MDD4All.de, Dr. Oliver Alt
 
         <ListView Grid.Row="1"
                   Grid.Column="0"
-                  Background="#333333"
+                  Margin="100,0,0,0"
+                  Background="LightGray"
                   BorderThickness="0"
                   ItemsSource="{Binding Notes}"
-                  SelectedItem="{Binding SelectedNote, Mode=TwoWay}">
+                  SelectedItem="{Binding SelectedNote, Mode=TwoWay}"
+                  SelectionMode="Single"
+                  Style="{StaticResource ContentGridListViewStyle}">
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid MaxWidth="400"
+                    <Grid Width="400"
+                          Height="200"
+                          MaxWidth="400"
                           MaxHeight="200"
                           Margin="5">
                         <Grid HorizontalAlignment="Stretch"
@@ -85,24 +90,10 @@ Copyright (c) MDD4All.de, Dr. Oliver Alt
 
                 </DataTemplate>
             </ListView.ItemTemplate>
-
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
-                </Style>
-            </ListView.ItemContainerStyle>
-
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate x:Name="ItemsPanelTemplate">
-                    <UniformGrid x:Name="ContentUniformGrid"
-                                 Columns="5"
-                                 Rows="5" />
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
         </ListView>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2"
+              Background="Black">
 
             <StackPanel Orientation="Horizontal">
                 <Button AutomationProperties.Name="New Note"
