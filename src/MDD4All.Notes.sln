@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MDD4All.Notes.Microservice"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MDD4All.Notes.Apps.NoteEditorWPF", "MDD4All.Notes.Apps.NoteEditorWPF\MDD4All.Notes.Apps.NoteEditorWPF.csproj", "{3A16BFBD-9185-40FB-997E-2130604C5238}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDD4All.Notes.DataProvider.Mockup", "MDD4All.Notes.DataProvider.Mockup\MDD4All.Notes.DataProvider.Mockup.csproj", "{CA0C3102-465E-4351-ADE2-FAAA988549E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MDD4All.Notes.DataProvider.Mockup", "MDD4All.Notes.DataProvider.Mockup\MDD4All.Notes.DataProvider.Mockup.csproj", "{CA0C3102-465E-4351-ADE2-FAAA988549E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

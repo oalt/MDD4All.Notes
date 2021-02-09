@@ -1,7 +1,6 @@
 ﻿/*
  * Copyright (c) MDD4All.de, Dr. Oliver Alt
  */
-using CommonServiceLocator;
 using MDD4All.Notes.Apps.NoteEditor.Views;
 using System;
 using System.Windows;
@@ -25,7 +24,7 @@ namespace MDD4All.Notes.Apps.NoteEditorWPF.Views
             if (rootFrame == null)
             {
                 // Frame erstellen, der als Navigationskontext fungiert und zum Parameter der ersten Seite navigieren
-                rootFrame = ServiceLocator.Current.GetInstance<Frame>();
+                rootFrame = new Frame();
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
             }

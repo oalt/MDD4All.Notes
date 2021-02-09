@@ -1,13 +1,6 @@
 ﻿/*
  * Copyright (c) MDD4All.de, Dr. Oliver Alt
  */
-using CommonServiceLocator;
-using MDD4All.Notes.Apps.NoteEditor.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Controls;
 
 

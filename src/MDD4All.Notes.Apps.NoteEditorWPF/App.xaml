@@ -1,5 +1,5 @@
 ﻿<!--
-Copyright (c) MDD4All.de, Dr. Oliver Alt
+    Copyright (c) MDD4All.de, Dr. Oliver Alt
 -->
 <Application x:Class="MDD4All.Notes.Apps.NoteEditorWPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
