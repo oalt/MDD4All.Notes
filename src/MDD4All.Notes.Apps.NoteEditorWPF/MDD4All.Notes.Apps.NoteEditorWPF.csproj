@@ -6,6 +6,8 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>NoteEditor</AssemblyName>
     <RootNamespace>MDD4All.Notes.Apps.NoteEditor</RootNamespace>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>MDD4All_Github.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
