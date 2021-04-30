@@ -46,7 +46,7 @@ jobs:
       run: dotnet build --no-restore -c Release /p:Version=${{env.VERSION}} ./src/${{env.PROJECT_NAME}}.sln
 
     - name: Create executable
-      run: dotnet publish --configuration Release /p:Version=${{env.VERSION}} -p:PublishReadyToRun=true -p:PublishSingleFile=true --no-build --output ./Output ./src/${{env.APP_PROJECT_NAME}}/${{env.APP_PROJECT_NAME}}.csproj
+      run: dotnet publish --configuration Release /p:Version=${{env.VERSION}} -p:PublishReadyToRun=true -p:PublishSingleFile=true -r win-x86 --no-build --output ./Output ./src/${{env.APP_PROJECT_NAME}}/${{env.APP_PROJECT_NAME}}.csproj
 
     - name: Upload artifact(s)
       uses: actions/upload-artifact@v2
