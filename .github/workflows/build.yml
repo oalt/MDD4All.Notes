@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     env:
       PROJECT_NAME: MDD4All.Notes
       APP_PROJECT_NAME: MDD4All.Notes.Apps.NoteEditorWPF
