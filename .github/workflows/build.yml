@@ -11,7 +11,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      PROJECT_NAME: MDD4All.Notes.sln
+      PROJECT_NAME: MDD4All.Notes
       APP_PROJECT_NAME: MDD4All.Notes.Apps.NoteEditorWPF
 
     steps:
