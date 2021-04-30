@@ -32,18 +32,18 @@ jobs:
         path: src/version.txt
 
     - name: Set version as environment variable
-      run: echo "VERSION=$(echo $FILE_VERSION.$GITHUB_RUN_NUMBER)" >> $GITHUB_ENV
       env:
         FILE_VERSION: ${{steps.fileVersion.outputs.text}}
+      run: echo ("VERSION=" + $env:FILE_VERSION +"." + $GITHUB_RUN_NUMBER) >> $env:GITHUB_ENV
 
     - name: Echo version number
-      run: echo $(VERSION)
+      run: echo $env:VERSION
 
     - name: Restore dependencies
       run: dotnet restore ./src/${{env.PROJECT_NAME}}.sln
 
     - name: Build
-      run: dotnet build --no-restore -c Release /p:Version=$(VERSION) ./src/$(PROJECT_NAME).sln
+      run: dotnet build --no-restore -c Release /p:Version=${{env.VERSION}} ./src/${{env.PROJECT_NAME}}.sln
 
     - name: Create executable
       run: dotnet publish --configuration Release /p:Version=${{env.VERSION}} -p:PublishReadyToRun=true -p:PublishSingleFile=true --no-build --output ./Output ./src/${{env.PROJECT_NAME}}/${{env.APP_PROJECT_NAME}}.csproj
