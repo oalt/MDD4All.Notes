@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\MDD4All.Notes.DataProvider.Contracts\MDD4All.Notes.DataProvider.Contracts.csproj" />
+        <ProjectReference Include="..\MDD4All.Notes.DataProvider.File\MDD4All.Notes.DataProvider.File.csproj" />
+        <ProjectReference Include="..\MDD4All.Notes.DataProvider.Mockup\MDD4All.Notes.DataProvider.Mockup.csproj" />
+    </ItemGroup>
+
+</Project>

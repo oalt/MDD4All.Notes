@@ -7,7 +7,7 @@ using MDD4All.Notes.DataProvider.Contracts;
 using MDD4All.Notes.DataProvider.File;
 using MDD4All.Notes.DataProvider.Mockup;
 
-namespace MDD4All.Notes.Apps.NoteEditor.ViewModels
+namespace MDD4All.Notes.ViewModels
 {
     public class ViewModelLocator
     {
@@ -23,6 +23,8 @@ namespace MDD4All.Notes.Apps.NoteEditor.ViewModels
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+
+            
         }
 
 

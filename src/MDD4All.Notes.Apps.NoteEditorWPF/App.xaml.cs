@@ -1,16 +1,12 @@
 ﻿/*
  * Copyright (c) MDD4All.de, Dr. Oliver Alt
  */
+using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Views;
+using MDD4All.Notes.Apps.NoteEditor.Navigation;
 using MDD4All.Notes.Apps.NoteEditor.Views;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 
 namespace MDD4All.Notes.Apps.NoteEditorWPF
 {
@@ -21,7 +17,14 @@ namespace MDD4All.Notes.Apps.NoteEditorWPF
     {
         public static Frame RootFrame { get; set; }
         
+        public App()
+        {
+            WpfNavigationService navigationService = new WpfNavigationService();
 
+            navigationService.Configure("EditNotePage", new EditNotePage());
+
+            SimpleIoc.Default.Register<INavigationService>(() => navigationService);
+        }
         
 
     }

@@ -3,25 +3,25 @@
  */
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using MDD4All.Notes.Apps.NoteEditor.Views;
-using MDD4All.Notes.Apps.NoteEditorWPF;
+using GalaSoft.MvvmLight.Views;
 using MDD4All.Notes.DataModels;
 using MDD4All.Notes.DataProvider.Contracts;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace MDD4All.Notes.Apps.NoteEditor.ViewModels
+namespace MDD4All.Notes.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-
         private INoteDataProvider _noteDataProvider;
+        private INavigationService _navigationService;
 
-        public MainViewModel(INoteDataProvider noteDataProvider)
+        public MainViewModel(INoteDataProvider noteDataProvider,
+                             INavigationService navigationService)
         {
             _noteDataProvider = noteDataProvider;
+            _navigationService = navigationService;
 
             NewNoteCommand = new RelayCommand(ExecuteNewNoteCommand);
             EditNoteCommand = new RelayCommand(ExecuteEditNoteCommand);
@@ -98,17 +98,7 @@ namespace MDD4All.Notes.Apps.NoteEditor.ViewModels
 
                 EditedNote = new NoteViewModel(newNote);
 
-                Frame rootFrame = App.RootFrame;
-
-                if (rootFrame != null)
-                {
-                    
-                    EditNotePage editNotePage = new EditNotePage();
-                    editNotePage.DataContext = this;
-
-                    rootFrame.Navigate(editNotePage);
-                }
-
+                _navigationService.NavigateTo("EditNotePage", this);
             }
         }
 
@@ -118,16 +108,7 @@ namespace MDD4All.Notes.Apps.NoteEditor.ViewModels
             {
                 EditedNote = SelectedNote;
 
-                Frame rootFrame = App.RootFrame;
-
-                if (rootFrame != null)
-                {
-
-                    EditNotePage editNotePage = new EditNotePage();
-                    editNotePage.DataContext = this;
-
-                    rootFrame.Navigate(editNotePage);
-                }
+                _navigationService.NavigateTo("EditNotePage", this);
             }
         }
 
@@ -151,12 +132,7 @@ namespace MDD4All.Notes.Apps.NoteEditor.ViewModels
 
         private void ExecuteGoBackCommand()
         {
-            Frame rootFrame = App.RootFrame;
-
-            if (rootFrame != null)
-            {
-                rootFrame.GoBack();
-            }
+            _navigationService.GoBack();
         }
 
         private void ExecuteSaveNoteCommand()

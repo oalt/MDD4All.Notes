@@ -24,6 +24,7 @@
     <ProjectReference Include="..\MDD4All.Notes.DataProvider.Contracts\MDD4All.Notes.DataProvider.Contracts.csproj" />
     <ProjectReference Include="..\MDD4All.Notes.DataProvider.File\MDD4All.Notes.DataProvider.File.csproj" />
     <ProjectReference Include="..\MDD4All.Notes.DataProvider.Mockup\MDD4All.Notes.DataProvider.Mockup.csproj" />
+    <ProjectReference Include="..\MDD4All.Notes.ViewModels\MDD4All.Notes.ViewModels.csproj" />
   </ItemGroup>
 
   <ItemGroup>

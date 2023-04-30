@@ -4,7 +4,7 @@
 using GalaSoft.MvvmLight;
 using MDD4All.Notes.DataModels;
 
-namespace MDD4All.Notes.Apps.NoteEditor.ViewModels
+namespace MDD4All.Notes.ViewModels
 {
     public class NoteViewModel : ViewModelBase
     {
