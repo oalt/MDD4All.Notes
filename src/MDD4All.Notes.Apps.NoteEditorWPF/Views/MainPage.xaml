@@ -10,7 +10,7 @@
       d:DesignHeight="1000"
       d:DesignWidth="1900"
       Background="Black"
-      DataContext="{Binding Main, Source={StaticResource Locator}}"
+      
       mc:Ignorable="d">
 
     <Page.Resources>
@@ -52,9 +52,9 @@
                   Background="LightGray"
                   BorderThickness="0"
                   ItemsSource="{Binding Notes}"
-                  SelectedItem="{Binding SelectedNote, Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedNote}"
                   SelectionMode="Single"
-                  Style="{StaticResource ContentGridListViewStyle}">
+                  Style="{StaticResource ContentGridListViewStyle}" d:ItemsSource="{d:SampleData ItemCount=5}">
 
             <ListView.ItemTemplate>
                 <DataTemplate>

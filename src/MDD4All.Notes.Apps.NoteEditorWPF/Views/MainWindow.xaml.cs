@@ -2,6 +2,7 @@
  * Copyright (c) MDD4All.de, Dr. Oliver Alt
  */
 using MDD4All.Notes.Apps.NoteEditor.Views;
+using MDD4All.Notes.ViewModels;
 using System;
 using System.Windows;
 using System.Windows.Controls;

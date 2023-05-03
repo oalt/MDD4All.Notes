@@ -1,6 +1,8 @@
 ﻿/*
  * Copyright (c) MDD4All.de, Dr. Oliver Alt
  */
+using MDD4All.Notes.Apps.NoteEditorWPF;
+using MDD4All.Notes.ViewModels;
 using System.Windows.Controls;
 
 
@@ -17,7 +19,8 @@ namespace MDD4All.Notes.Apps.NoteEditor.Views
         {
             InitializeComponent();
 
-            //DataContext = ServiceLocator.Current.GetInstance<MainViewModel>();
+            DataContext = App.Current.Services.GetService(typeof(MainViewModel));
         }
+
     }
 }
