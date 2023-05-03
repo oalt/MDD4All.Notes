@@ -81,5 +81,21 @@ namespace MDD4All.Notes.ViewModels
             }
         }
 
+        private bool _isSelected = false;
+
+        public bool IsSelected
+        {
+            get 
+            { 
+                return _isSelected; 
+            }
+
+            set 
+            { 
+                _isSelected = value; 
+            }
+        }
+
+
     }
 }

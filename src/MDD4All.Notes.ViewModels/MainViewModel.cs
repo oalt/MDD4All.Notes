@@ -55,10 +55,22 @@ namespace MDD4All.Notes.ViewModels
             set
             {
                 _noteSelectedNote = value;
+                SetNotesSelection();
                 RaisePropertyChanged("SelectedNote");
             }
         }
 
+        private void SetNotesSelection()
+        {
+            foreach(NoteViewModel noteViewModel in Notes)
+            {
+                noteViewModel.IsSelected = false;
+                if(noteViewModel == SelectedNote)
+                {
+                    noteViewModel.IsSelected = true;
+                }
+            }
+        }
 
         private NoteViewModel _editedNote;
 
