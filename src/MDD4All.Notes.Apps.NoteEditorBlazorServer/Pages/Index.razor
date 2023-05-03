@@ -1,0 +1,37 @@
+﻿@page "/"
+@using MDD4All.Notes.Apps.NoteEditorBlazorServer.BlazorComponents
+@using MDD4All.Notes.ViewModels;
+
+@if (DataContext.EditedNote == null)
+{
+    <h1>Notes</h1>
+
+    <div>
+        <button type="button"
+                class="btn btn-success"
+                @onclick="OnNewButtonClick">
+            New note
+        </button>
+
+        <button type="button"
+                class="btn btn-primary"
+                @onclick="OnEditButtonClick">
+            Edit
+        </button>
+
+        <button type="button"
+                class="btn btn-danger"
+                @onclick="OnDeleteButtonClick">
+            Delete
+        </button>
+    </div>
+
+    <div>
+        <NoteList DataContext="DataContext" />
+    </div>
+}
+else
+{
+    <NoteEditor DataContext="DataContext"
+                GoBackEventCallback="OnEditGoBack" />
+}

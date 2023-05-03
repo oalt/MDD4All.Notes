@@ -1,0 +1,27 @@
+﻿<h1>Edit note...</h1>
+
+<button type="button"
+        class="btn btn-primary"
+        @onclick="OnBackButtonClick">Back</button>
+
+<button type="button"
+        class="btn btn-success"
+        @onclick="OnSaveButtonClick">Save</button>
+
+@if (DataContext.EditedNote != null)
+{
+    <form>
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text"
+               class="form-control"
+               @bind="DataContext.EditedNote.Title">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea class="form-control"
+                      @bind="DataContext.EditedNote.Description" />
+        </div>
+    </form>
+
+}

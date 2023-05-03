@@ -1,0 +1,11 @@
+﻿@using MDD4All.Notes.ViewModels;
+
+<div class="p-3">
+    @foreach (NoteViewModel noteViewModel in DataContext.Notes)
+    {
+        <div @onclick="() => OnNoteClicked(noteViewModel.GUID)"
+             class="mb-2">
+            <Note DataContext="noteViewModel"></Note>
+        </div>
+    }
+</div>
