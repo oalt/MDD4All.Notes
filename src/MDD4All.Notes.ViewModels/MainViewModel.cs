@@ -9,6 +9,7 @@ using MDD4All.Notes.DataProvider.Contracts;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using System.Linq;
 
 namespace MDD4All.Notes.ViewModels
 {
@@ -118,7 +119,14 @@ namespace MDD4All.Notes.ViewModels
         {
             if(SelectedNote != null)
             {
-                EditedNote = SelectedNote;
+                Note noteUnderEdit = new Note
+                {
+                    GUID = SelectedNote.Note.GUID,
+                    Title = SelectedNote.Note.Title,
+                    Description = SelectedNote.Note.Description
+                };
+
+                EditedNote = new NoteViewModel(noteUnderEdit);
 
                 _navigationService.NavigateTo("EditNotePage", this);
             }
@@ -129,10 +137,20 @@ namespace MDD4All.Notes.ViewModels
         {
             if(SelectedNote != null)
             {
-                if(_noteDataProvider != null)
+                if (_noteDataProvider != null)
                 {
                     _noteDataProvider.DeleteNote(SelectedNote.Note.GUID);
-                    Notes.Remove(SelectedNote);
+                    int index = 0;
+                    foreach (NoteViewModel noteViewModel in Notes)
+                    {
+                        if (noteViewModel.Note.GUID == SelectedNote.Note.GUID)
+                        {
+                            break;
+                        }
+                        index++;
+                    }
+
+                    Notes.RemoveAt(index);
                 }
             }
         }
@@ -153,7 +171,23 @@ namespace MDD4All.Notes.ViewModels
             {
                 _noteDataProvider.SaveNote(EditedNote.Note);
 
-                if(!Notes.Contains(EditedNote))
+                bool found = false;
+                int index = 0;
+                foreach(NoteViewModel noteViewModel in Notes)
+                {
+                    if(noteViewModel.Note.GUID == EditedNote.Note.GUID)
+                    {
+                        found = true;
+                        break;
+
+                    }
+                    index++;
+                }
+                if(found)
+                {
+                    Notes[index] = EditedNote;
+                }
+                else // not found
                 {
                     Notes.Add(EditedNote);
                 }
