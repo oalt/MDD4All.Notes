@@ -1,19 +1,18 @@
 ﻿/*
  * Copyright (c) MDD4All.de, Dr. Oliver Alt
  */
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Views;
 using MDD4All.Notes.DataModels;
 using MDD4All.Notes.DataProvider.Contracts;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using System.Linq;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using MDD4All.MVVM;
 
 namespace MDD4All.Notes.ViewModels
 {
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : ObservableObject
     {
         private INoteDataProvider _noteDataProvider;
         private INavigationService _navigationService;
@@ -57,7 +56,7 @@ namespace MDD4All.Notes.ViewModels
             {
                 _noteSelectedNote = value;
                 SetNotesSelection();
-                RaisePropertyChanged("SelectedNote");
+                OnPropertyChanged("SelectedNote");
             }
         }
 
@@ -81,7 +80,7 @@ namespace MDD4All.Notes.ViewModels
             set
             {
                 _editedNote = value;
-                RaisePropertyChanged("EditedNote");
+                OnPropertyChanged("EditedNote");
             }
         }
 

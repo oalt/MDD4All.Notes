@@ -1,5 +1,4 @@
-using GalaSoft.MvvmLight.Ioc;
-using GalaSoft.MvvmLight.Views;
+using MDD4All.MVVM;
 using MDD4All.Notes.Apps.NoteEditorBlazorServer.Naviagation;
 using MDD4All.Notes.DataProvider.Contracts;
 using MDD4All.Notes.DataProvider.File;

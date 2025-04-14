@@ -1,12 +1,12 @@
 ﻿/*
  * Copyright (c) MDD4All.de, Dr. Oliver Alt
  */
-using GalaSoft.MvvmLight;
+using CommunityToolkit.Mvvm.ComponentModel;
 using MDD4All.Notes.DataModels;
 
 namespace MDD4All.Notes.ViewModels
 {
-    public class NoteViewModel : ViewModelBase
+    public class NoteViewModel : ObservableObject
     {
         
         public NoteViewModel(Note note)
@@ -36,7 +36,7 @@ namespace MDD4All.Notes.ViewModels
                 {
                     Note.Title = value;
                 }
-                RaisePropertyChanged("Title");
+                OnPropertyChanged("Title");
             }
         }
 
@@ -62,7 +62,7 @@ namespace MDD4All.Notes.ViewModels
                 {
                     Note.Description = value;
                 }
-                RaisePropertyChanged("Description");
+                OnPropertyChanged("Description");
             }
         }
 

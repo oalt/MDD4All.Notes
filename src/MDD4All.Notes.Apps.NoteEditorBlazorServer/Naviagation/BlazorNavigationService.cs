@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight.Views;
+﻿using MDD4All.MVVM;
 
 namespace MDD4All.Notes.Apps.NoteEditorBlazorServer.Naviagation
 {

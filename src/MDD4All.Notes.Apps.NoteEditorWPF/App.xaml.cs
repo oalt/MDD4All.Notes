@@ -1,8 +1,7 @@
 ﻿/*
  * Copyright (c) MDD4All.de, Dr. Oliver Alt
  */
-using GalaSoft.MvvmLight.Ioc;
-using GalaSoft.MvvmLight.Views;
+using MDD4All.MVVM;
 using MDD4All.Notes.Apps.NoteEditor.Navigation;
 using MDD4All.Notes.Apps.NoteEditor.Views;
 using MDD4All.Notes.DataProvider.Contracts;

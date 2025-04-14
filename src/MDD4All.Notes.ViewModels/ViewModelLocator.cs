@@ -1,11 +1,13 @@
 ﻿/*
  * Copyright (c) MDD4All.de, Dr. Oliver Alt
  */
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Ioc;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.DependencyInjection;
+using MDD4All.MVVM;
 using MDD4All.Notes.DataProvider.Contracts;
 using MDD4All.Notes.DataProvider.File;
 using MDD4All.Notes.DataProvider.Mockup;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MDD4All.Notes.ViewModels
 {
@@ -13,18 +15,22 @@ namespace MDD4All.Notes.ViewModels
     {
         static ViewModelLocator()
         {
-            if (ViewModelBase.IsInDesignModeStatic)
+            ServiceCollection serviceCollection = new ServiceCollection();
+
+            if (DesignerLibrary.IsInDesignModeStatic)
             {
-                SimpleIoc.Default.Register<INoteDataProvider, MockupNoteDataProvider>();
+                serviceCollection.AddSingleton<INoteDataProvider, MockupNoteDataProvider>();
+                
             }
             else
             {
-                SimpleIoc.Default.Register<INoteDataProvider, FileNoteDataProvider>();
+                serviceCollection.AddSingleton<INoteDataProvider, FileNoteDataProvider>();
             }
 
-            SimpleIoc.Default.Register<MainViewModel>();
+            serviceCollection.AddSingleton<MainViewModel>();
 
-            
+            Ioc.Default.ConfigureServices(serviceCollection.BuildServiceProvider());
+                   
         }
 
 
@@ -32,7 +38,7 @@ namespace MDD4All.Notes.ViewModels
         {
             get
             {
-                return SimpleIoc.Default.GetInstance<MainViewModel>();
+                return Ioc.Default.GetService<MainViewModel>();
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight.Views;
+﻿using MDD4All.MVVM;
 using MDD4All.Notes.Apps.NoteEditorWPF;
 using System;
 using System.Collections.Generic;
